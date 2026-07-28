@@ -1,0 +1,50 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "gallery": "Gallery",
+    "whyUs": "Why Us",
+    "contact": "Contact",
+    "switchLang": "العربية"
+  },
+  "hero": {
+    "title": "El Turbo Showroom",
+    "subtitle": "Your premier destination for the latest motorcycles and scooters",
+    "description": "Discover a wide range of the best motorcycles and scooters at the best prices with various payment plans.",
+    "ctaPrimary": "Contact Us",
+    "ctaSecondary": "View Gallery"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "At El Turbo Showroom, we pride ourselves on offering the best and latest motorcycles and scooters to suit all needs. With years of experience in the market, we guarantee unbeatable quality, competitive prices, and excellent after-sales service."
+  },
+  "whyUs": {
+    "title": "Why Choose Us?",
+    "installments": {
+      "title": "Convenient Installment Plans",
+      "description": "We offer multiple installment options to suit your budget through major financing companies.",
+      "companies": ["Aman", "Souhoola", "Mylo", "Ingaz", "Halan", "Value", "Khazna", "Forsa", "Klivvr", "Tru", "Mogo", "Seven", "Visa / Master Card"]
+    },
+    "cash": {
+      "title": "Easy Cash Purchase",
+      "description": "Pay easily and securely via instant payment options.",
+      "companies": ["InstaPay", "Vodafone Cash"]
+    },
+    "fastApproval": {
+      "title": "Fast Approval",
+      "description": "Simplified procedures and instant approval so you can receive your bike as soon as possible."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "phone": "Phone Number",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "address": "Address",
+    "addressText": "Cairo, Egypt (Edit address here)"
+  },
+  "footer": {
+    "copyright": "All Rights Reserved © El Turbo Showroom 2026",
+    "quickLinks": "Quick Links"
+  }
+}
