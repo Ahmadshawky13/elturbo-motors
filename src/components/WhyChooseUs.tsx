@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { CreditCard, Banknote, Clock } from "lucide-react";
 import { SectionHeading } from "./ui/SectionHeading";
+import type { Dictionary } from "@/types/dictionary";
 
-export function WhyChooseUs({ dict }: { dict: any }) {
+export function WhyChooseUs({ dict }: { dict: Dictionary }) {
   const cards = [
     {
       icon: <CreditCard className="w-8 h-8 text-primary" />,
@@ -34,7 +35,7 @@ export function WhyChooseUs({ dict }: { dict: any }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {cards.map((card, idx) => (
             <motion.div
-              key={idx}
+              key={card.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -51,9 +52,9 @@ export function WhyChooseUs({ dict }: { dict: any }) {
 
               {card.tags && (
                 <div className="flex flex-wrap gap-2">
-                  {card.tags.map((tag: string, i: number) => (
-                    <span 
-                      key={i} 
+                  {card.tags.map((tag) => (
+                    <span
+                      key={tag}
                       className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300"
                     >
                       {tag}
