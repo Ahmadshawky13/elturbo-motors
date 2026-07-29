@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Required to enable LAN access and fix HMR WebSocket on other PCs
+  turbopack: {},
 };
 
 export default nextConfig;
