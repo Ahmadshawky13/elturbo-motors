@@ -2,9 +2,11 @@
   "nav": {
     "home": "Home",
     "about": "About Us",
+    "bikes": "Bikes",
     "gallery": "Gallery",
     "whyUs": "Why Us",
     "contact": "Contact",
+    "menu": "Menu",
     "switchLang": "العربية"
   },
   "hero": {
@@ -16,7 +18,9 @@
   },
   "about": {
     "title": "About Us",
-    "description": "At El Turbo Showroom, we pride ourselves on offering the best and latest motorcycles and scooters to suit all needs. With years of experience in the market, we guarantee unbeatable quality, competitive prices, and excellent after-sales service."
+    "description": "At El Turbo Showroom, we pride ourselves on offering the best and latest motorcycles and scooters to suit all needs. With years of experience in the market, we guarantee unbeatable quality, competitive prices, and excellent after-sales service.",
+    "yearsLabel": "Years of Experience",
+    "clientsLabel": "Happy Clients"
   },
   "whyUs": {
     "title": "Why Choose Us?",
@@ -41,10 +45,79 @@
     "whatsapp": "WhatsApp",
     "email": "Email",
     "address": "Address",
-    "addressText": "Cairo, Egypt (Edit address here)"
+    "addressText": "Cairo, Egypt (Edit address here)",
+    "openInMaps": "Open in Google Maps"
   },
   "footer": {
     "copyright": "All Rights Reserved © El Turbo Showroom 2026",
     "quickLinks": "Quick Links"
+  },
+  "bikes": {
+    "title": "Our Bikes",
+    "subtitle": "Every machine in the showroom, with the numbers that matter.",
+    "eyebrow": "The Collection",
+    "viewAll": "Browse All Bikes",
+    "viewDetails": "View Details",
+    "viewImage": "View Image",
+    "previous": "Previous image",
+    "next": "Next image",
+    "close": "Close",
+    "backToBikes": "Back to all bikes",
+    "startingFrom": "Starting from",
+    "modelYear": "Model",
+    "resultsOne": "1 bike",
+    "resultsMany": "{count} bikes",
+    "all": "All",
+    "categories": {
+      "sport": "Sport",
+      "naked": "Naked",
+      "cruiser": "Cruiser",
+      "adventure": "Adventure",
+      "scooter": "Scooter"
+    },
+    "highlights": {
+      "displacement": "Displacement",
+      "displacementUnit": "cc",
+      "horsepower": "Power",
+      "horsepowerUnit": "hp",
+      "zeroToHundred": "0–100 km/h",
+      "zeroToHundredUnit": "sec"
+    },
+    "specsTitle": "Full Specifications",
+    "specsSubtitle": "Manufacturer figures for the standard model.",
+    "featuresTitle": "Features & Equipment",
+    "colorsTitle": "Available Colours",
+    "overviewTitle": "Overview",
+    "relatedTitle": "You May Also Like",
+    "galleryTitle": "Gallery",
+    "specs": {
+      "engine": "Engine",
+      "power": "Max Power",
+      "torque": "Max Torque",
+      "transmission": "Transmission",
+      "fuel": "Fuel Capacity",
+      "weight": "Weight",
+      "topSpeed": "Top Speed",
+      "seatHeight": "Seat Height",
+      "brakes": "Brakes",
+      "cooling": "Cooling"
+    },
+    "cta": {
+      "enquire": "Enquire on WhatsApp",
+      "call": "Call the Showroom",
+      "message": "Hi, I'm interested in the {bike}. Is it available?"
+    },
+    "installments": {
+      "title": "Installment Calculator",
+      "subtitle": "Estimate your monthly payment before you visit.",
+      "downPayment": "Down payment",
+      "duration": "Duration",
+      "months": "months",
+      "monthly": "Estimated monthly",
+      "financed": "Amount financed",
+      "note": "An indicative estimate only. Final terms depend on the financing company and your credit approval."
+    },
+    "notFoundTitle": "Bike not found",
+    "notFoundBody": "This bike may have been sold or renamed. Browse the rest of the showroom instead."
   }
 }
