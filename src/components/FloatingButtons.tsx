@@ -44,7 +44,8 @@ export function FloatingButtons({
         >
           {/* WhatsApp Floating Button */}
           <a
-            href={whatsappHref(message)}
+          
+            href=" https://wa.me/201036702266"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={dict.contact.whatsapp}

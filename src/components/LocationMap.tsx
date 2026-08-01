@@ -25,7 +25,7 @@ export function LocationMap({ dict }: { dict: Dictionary }) {
             </h2>
             <p className="text-lg text-light-muted">{dict.contact.addressText}</p>
             <a
-              href={site.mapsUrl}
+              href="https://maps.app.goo.gl/F4iM9SbfBUY5mLAq9"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 font-semibold text-white shadow-lg shadow-primary/20 transition-all duration-300 hover:bg-primary-dark active:scale-95"

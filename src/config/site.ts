@@ -3,14 +3,14 @@
  * Update the numbers and links here and every page picks them up.
  */
 export const site = {
-  phoneDisplay: "+20 100 000 0000",
+  phoneDisplay: "+20 10 367 02266",
   /** Digits only, international format — used for tel: and wa.me links. */
-  phoneRaw: "201000000000",
-  whatsappRaw: "201000000000",
-  email: "info@elturbo.com",
-  mapsUrl: "https://maps.google.com/?q=Cairo,Egypt",
+  phoneRaw: "201036702266",
+  whatsappRaw: "201036702266",
+  email: "elturbomotors@gmail.com",
+  mapsUrl: "https://maps.app.goo.gl/yiGMeZBCs2g1ay9v9",
   mapsEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110502.61185043644!2d31.24967!3d30.0444196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296e8423bba!2sCairo%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1700000000000!5m2!1sen!2seg",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3450.9642449590297!2d31.344035100000003!3d30.1238366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145815cfa915c3ef%3A0xe6fb8e67b9782a7c!2z2YXYudix2LYg2KfZhNiq2LHYqNmIINmF2YjYqtmI2LHYsg!5e0!3m2!1sen!2seg!4v1785594722391!5m2!1sen!2seg",
   social: {
     facebook: "#",
     instagram: "#",
