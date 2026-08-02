@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import { formatPrice, type Bike } from "@/data/bikes";
+import type { Bike } from "@/data/bikes";
 import type { Locale } from "@/lib/locale";
 import type { Dictionary } from "@/types/dictionary";
 import { cn } from "@/lib/utils";
@@ -72,15 +72,7 @@ export function BikeCard({ bike, dict, lang, index = 0, className }: BikeCardPro
             {bike.tagline[lang]}
           </p>
 
-          <div className="flex items-end justify-between gap-3 border-t border-white/10 pt-4">
-            <div>
-              <p className="text-[11px] uppercase tracking-widest text-light-muted">
-                {dict.bikes.startingFrom}
-              </p>
-              <p className="numeric text-lg font-bold text-white">
-                {formatPrice(bike.price, lang)}
-              </p>
-            </div>
+          <div className="flex items-center justify-end border-t border-white/10 pt-4">
             <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-transform duration-300 group-hover:gap-2.5">
               {dict.bikes.viewDetails}
               <Arrow className="h-4 w-4" />

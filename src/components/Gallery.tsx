@@ -1,166 +1,84 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
+import { motion } from "framer-motion";
 import { SectionHeading } from "./ui/SectionHeading";
-import { showroomGallery } from "@/data/bikes";
-import type { Locale } from "@/lib/locale";
 import type { Dictionary } from "@/types/dictionary";
-import { cn } from "@/lib/utils";
+import type { Locale } from "@/lib/locale";
 
-const SPAN_CLASSES: Record<string, string> = {
-  big: "sm:col-span-2 sm:row-span-2",
-  wide: "sm:col-span-2",
-  tall: "sm:row-span-2",
-};
+/** Partner brand data — order determines carousel sequence. */
+const partners = [
+  { name: "Benelli", logo: "/partners/benelli.png" },
+  { name: "Bajaj", logo: "/partners/bajaj.png" },
+  { name: "TVS", logo: "/partners/tvs.png" },
+  { name: "SYM", logo: "/partners/sym.png" },
+  { name: "Keeway", logo: "/partners/keeway.png" },
+  { name: "Dayun", logo: "/partners/dayun.png" },
+  { name: "Haojiang", logo: "/partners/haojiang.png" },
+  { name: "Zontes", logo: "/partners/zontes.png" },
+  { name: "Vigorey", logo: "/partners/vigorey.png" },
+];
 
-export function Gallery({ dict, lang }: { dict: Dictionary; lang: Locale }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const go = useCallback((delta: number) => {
-    setOpenIndex((current) => {
-      if (current === null) return current;
-      return (current + delta + showroomGallery.length) % showroomGallery.length;
-    });
-  }, []);
-
-  useEffect(() => {
-    if (openIndex === null) return;
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpenIndex(null);
-      if (event.key === "ArrowRight") go(1);
-      if (event.key === "ArrowLeft") go(-1);
-    };
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [openIndex, go]);
-
-  const active = openIndex === null ? null : showroomGallery[openIndex];
+/**
+ * Infinite auto-scrolling partner logo carousel.
+ *
+ * The trick: render the list twice side-by-side, then translate the whole
+ * strip by -50% over the animation duration so it loops seamlessly.
+ */
+export function Gallery({ dict, lang }: { dict: Dictionary; lang?: Locale }) {
+  // Duplicate logos for the seamless loop effect
+  const logos = [...partners, ...partners];
 
   return (
-    <section id="gallery" className="py-24 bg-dark-card border-t border-white/5">
-      <div className="container mx-auto px-4 md:px-6">
-        <SectionHeading title={dict.nav.gallery} subtitle={dict.bikes.subtitle} />
+    <section
+      id="gallery"
+      className="relative overflow-hidden border-t border-white/5 bg-dark-card py-24"
+    >
+      {/* Subtle background pattern */}
+      <div className="pointer-events-none absolute inset-0 grid-pattern opacity-30" />
 
-        <div className="grid auto-rows-[190px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[210px]">
-          {showroomGallery.map((photo, idx) => (
-            <motion.button
-              key={photo.src}
-              type="button"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.45, delay: Math.min(idx, 8) * 0.06 }}
-              onClick={() => setOpenIndex(idx)}
-              aria-label={photo.alt[lang]}
-              className={cn(
-                "group relative overflow-hidden rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary",
-                photo.span ? SPAN_CLASSES[photo.span] : ""
-              )}
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt[lang]}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-dark/50 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
-                <span className="inline-flex items-center gap-2 rounded-full bg-primary/85 px-4 py-2 text-sm text-white">
-                  <Expand className="h-4 w-4" />
-                  {dict.bikes.viewImage}
-                </span>
-              </div>
-            </motion.button>
-          ))}
-        </div>
+      <div className="container relative z-10 mx-auto px-4 md:px-6">
+        <SectionHeading
+          title={dict.partners.title}
+          subtitle={dict.partners.subtitle}
+        />
 
-        <div className="mt-12 text-center">
-          <Link
-            href={`/${lang}/bikes`}
-            className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 font-semibold text-white shadow-lg shadow-primary/20 transition-all duration-300 hover:bg-primary-dark active:scale-95"
-          >
-            {dict.bikes.viewAll}
-          </Link>
-        </div>
-      </div>
+        {/* ── Carousel track ──────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative mt-4"
+        >
+          {/* Fade masks on the edges */}
+          <div className="pointer-events-none absolute inset-y-0 start-0 z-10 w-20 bg-gradient-to-r from-dark-card to-transparent rtl:bg-gradient-to-l md:w-32" />
+          <div className="pointer-events-none absolute inset-y-0 end-0 z-10 w-20 bg-gradient-to-l from-dark-card to-transparent rtl:bg-gradient-to-r md:w-32" />
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {active && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            role="dialog"
-            aria-modal="true"
-            aria-label={active.alt[lang]}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 backdrop-blur-sm"
-            onClick={() => setOpenIndex(null)}
-          >
-            <button
-              type="button"
-              aria-label={dict.bikes.close}
-              className="absolute top-6 end-6 text-white transition-colors hover:text-primary"
-              onClick={() => setOpenIndex(null)}
-            >
-              <X className="h-8 w-8" />
-            </button>
-
-            <motion.div
-              initial={{ scale: 0.94 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.94 }}
-              className="relative h-[78vh] w-full max-w-5xl"
-              onClick={(event) => event.stopPropagation()}
-            >
-              <Image
-                src={active.src}
-                alt={active.alt[lang]}
-                fill
-                sizes="100vw"
-                className="rounded-lg object-contain"
-              />
-            </motion.div>
-
+          {/* Scrolling strip */}
+          <div className="overflow-hidden">
             <div
-              className="absolute bottom-8 flex items-center gap-4"
-              onClick={(event) => event.stopPropagation()}
+              className="flex w-max animate-scroll-x gap-10 py-8 md:gap-16"
+              style={{ "--scroll-speed": "35s" } as React.CSSProperties}
             >
-              <button
-                type="button"
-                onClick={() => go(-1)}
-                aria-label={dict.bikes.previous}
-                className="flex h-11 w-11 items-center justify-center rounded-full glass-button text-white"
-              >
-                <ChevronLeft className="h-5 w-5 rtl:rotate-180" />
-              </button>
-              <span className="numeric text-sm text-light-muted">
-                {(openIndex ?? 0) + 1} / {showroomGallery.length}
-              </span>
-              <button
-                type="button"
-                onClick={() => go(1)}
-                aria-label={dict.bikes.next}
-                className="flex h-11 w-11 items-center justify-center rounded-full glass-button text-white"
-              >
-                <ChevronRight className="h-5 w-5 rtl:rotate-180" />
-              </button>
+              {logos.map((partner, idx) => (
+                <div
+                  key={`${partner.name}-${idx}`}
+                  className="group flex h-24 w-36 shrink-0 items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4 transition-all duration-300 hover:border-primary/40 hover:bg-white/[0.07] hover:shadow-lg hover:shadow-primary/5 md:h-28 md:w-44 md:p-5"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={140}
+                    height={80}
+                    className="max-h-full w-auto object-contain opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
+                  />
+                </div>
+              ))}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }

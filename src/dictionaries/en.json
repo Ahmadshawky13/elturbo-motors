@@ -3,8 +3,8 @@
     "home": "Home",
     "about": "About Us",
     "bikes": "Bikes",
-    "gallery": "Gallery",
-    "whyUs": "Why Us",
+    "gallery": "Partners",
+    "whyUs": "Payment Options",
     "contact": "Contact",
     "menu": "Menu",
     "switchLang": "العربية"
@@ -23,7 +23,7 @@
     "clientsLabel": "Happy Clients"
   },
   "whyUs": {
-    "title": "Why Choose Us?",
+    "title": "Payment Methods and Installment Plans",
     "installments": {
       "title": "Convenient Installment Plans",
       "description": "We offer multiple installment options to suit your budget through major financing companies.",
@@ -45,7 +45,7 @@
     "whatsapp": "WhatsApp",
     "email": "Email",
     "address": "Address",
-    "addressText": "Cairo, Egypt (Edit address here)",
+    "addressText": "Cairo, Egypt, el Khalil Ibrahim Street from Ahmed Esmat, Gesr El Suez - Ain Shams ",
     "openInMaps": "Open in Google Maps"
   },
   "footer": {
@@ -119,5 +119,9 @@
     },
     "notFoundTitle": "Bike not found",
     "notFoundBody": "This bike may have been sold or renamed. Browse the rest of the showroom instead."
+  },
+  "partners": {
+    "title": "Our Partners",
+    "subtitle": "We are proud partners with leading motorcycle and scooter brands."
   }
 }

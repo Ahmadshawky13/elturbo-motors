@@ -6,7 +6,7 @@ import { ArrowLeft, Check, MessageCircle, Phone } from "lucide-react";
 
 import { getDictionary } from "@/config/dictionaries";
 import { telHref, whatsappHref } from "@/config/site";
-import { bikes, formatPrice, getBike, getRelatedBikes } from "@/data/bikes";
+import { bikes, getBike, getRelatedBikes } from "@/data/bikes";
 import { isLocale, locales, type Locale } from "@/lib/locale";
 import { Navbar } from "@/components/Navbar";
 import { ContactFooter } from "@/components/ContactFooter";
@@ -15,7 +15,7 @@ import { BikeGallery } from "@/components/bikes/BikeGallery";
 import { BikeCard } from "@/components/bikes/BikeCard";
 import { SpecSheet } from "@/components/bikes/SpecSheet";
 import { StatStrip } from "@/components/bikes/StatStrip";
-import { InstallmentCalculator } from "@/components/bikes/InstallmentCalculator";
+
 import { Reveal } from "@/components/ui/Reveal";
 
 type Params = Promise<{ lang: string; slug: string }>;
@@ -128,15 +128,6 @@ export default async function BikeDetailPage({ params }: { params: Params }) {
             </p>
 
             <div className="flex flex-wrap items-end gap-x-8 gap-y-4 pt-2">
-              <div>
-                <p className="text-xs uppercase tracking-widest text-light-muted">
-                  {dict.bikes.startingFrom}
-                </p>
-                <p className="numeric text-3xl font-bold text-white md:text-4xl">
-                  {formatPrice(bike.price, lang)}
-                </p>
-              </div>
-
               <div className="flex flex-wrap gap-3">
                 <a
                   href={whatsappHref(enquiryMessage)}
@@ -212,9 +203,7 @@ export default async function BikeDetailPage({ params }: { params: Params }) {
               </ul>
             </Reveal>
 
-            <Reveal delay={0.2}>
-              <InstallmentCalculator price={bike.price} dict={dict} lang={lang} />
-            </Reveal>
+
           </div>
         </div>
       </section>
